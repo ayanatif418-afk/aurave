@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Auravé</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="aurave logo.png">
+</head>
+<body>
+    <!-- Enhanced Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="aurave logo.png" alt="Auravé Logo">
+                    <span class="logo-text">AURAVÉ</span>
+                </a>
+            </div>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <div class="nav-icons">
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Enhanced Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Rs. 0</span>
+                </div>
+                <button class="whatsapp-order-btn" id="whatsappOrderBtn">
+                    <i class="fa-brands fa-whatsapp"></i> Place Order via WhatsApp
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Collection</h1>
+            <p>Discover luxury pieces that define your style</p>
+        </div>
+    </section>
+
+    <!-- Products Section with Sidebar Filters -->
+    <section class="products-main-section">
+        <div class="container">
+            <div class="products-layout">
+                <!-- Sidebar Filters -->
+                <aside class="products-sidebar">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">
+                            <i class="fa-solid fa-filter"></i> Filters
+                        </h3>
+                        <button class="clear-filters" id="clearFilters">
+                            <i class="fa-solid fa-rotate-left"></i> Clear All
+                        </button>
+                    </div>
+
+                    <!-- Categories Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Categories</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="all" checked>
+                                <span class="checkmark"></span>
+                                <span class="option-text">All Products</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="street-style">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Street Style</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="classic">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Classic</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="accessories">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Accessories</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="more">
+                                <span class="checkmark"></span>
+                                <span class="option-text">More</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Price Range</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="price" value="0-3000">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Under Rs. 3,000</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="price" value="3000-5000">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Rs. 3,000 - 5,000</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="price" value="5000-8000">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Rs. 5,000 - 8,000</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="price" value="8000+">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Above Rs. 8,000</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Sort By -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Sort By</h4>
+                        <select class="sort-select" id="sortSelect">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-az">Name: A to Z</option>
+                            <option value="name-za">Name: Z to A</option>
+                        </select>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="products-content">
+                    <div class="products-header">
+                        <h2 class="products-count" id="productsCount">Showing <span>17</span> Products</h2>
+                        <button class="mobile-filter-btn" id="mobileFilterBtn">
+                            <i class="fa-solid fa-sliders"></i> Filters
+                        </button>
+                    </div>
+
+                    <div class="products-grid" id="productsGrid">
+                        <!-- PRODUCT 1: White Aura Watch - images/white aura.jpeg -->
+                        <div class="product-card" data-category="street-style" data-price="8500" data-name="White Aura Watch" data-description="Bold street-ready timepiece with modern design. Features premium materials and water resistance.">
+                            <div class="product-image">
+                                <img src="white aura.jpeg" alt="White Aura Watch">
+                                <div class="product-badge">New</div>
+                                <button class="quick-view-btn" 
+                                    data-name="White Aura Watch" 
+                                    data-price="8500" 
+                                    data-image="white aura.jpeg"
+                                    data-description="Bold street-ready timepiece with modern design. Features premium materials and water resistance.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>White Aura Watch</h3>
+                                <p>Bold street-ready timepiece with modern design</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 8,500</span>
+                                    <button class="add-to-cart-btn" data-name="White Aura Watch" data-price="8500" data-image="images/white aura.jpeg">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 2: Wheat Chain Necklace - images/WheatChainNecklace.jpg -->
+                        <div class="product-card" data-category="accessories" data-price="5500" data-name="Wheat Chain Necklace" data-description="Premium gold-plated chain necklace with wheat pattern design. Perfect for layering or wearing alone.">
+                            <div class="product-image">
+                                <img src="WheatChainNecklace.jpg" alt="Wheat Chain Necklace">
+                                <button class="quick-view-btn"
+                                    data-name="Wheat Chain Necklace" 
+                                    data-price="5500" 
+                                    data-image="WheatChainNecklace.jpg"
+                                    data-description="Premium gold-plated chain necklace with wheat pattern design. Perfect for layering or wearing alone.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Wheat Chain Necklace</h3>
+                                <p>Premium gold-plated chain necklace</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 5,500</span>
+                                    <button class="add-to-cart-btn" data-name="Wheat Chain Necklace" data-price="5500" data-image="images/WheatChainNecklace.jpg">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 3: Washed T-Shirt - images/washed t shirt.PNG -->
+                        <div class="product-card" data-category="street-style" data-price="2800" data-name="Washed T-Shirt" data-description="Vintage washed graphic tee with distressed finish. Made from premium cotton for maximum comfort.">
+                            <div class="product-image">
+                                <img src="washed t shirt.PNG" alt="Washed T-Shirt">
+                                <button class="quick-view-btn"
+                                    data-name="Washed T-Shirt" 
+                                    data-price="2800" 
+                                    data-image="washed t shirt.PNG"
+                                    data-description="Vintage washed graphic tee with distressed finish. Made from premium cotton for maximum comfort.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Washed T-Shirt</h3>
+                                <p>Vintage washed graphic tee</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 2,800</span>
+                                    <button class="add-to-cart-btn" data-name="Washed T-Shirt" data-price="2800" data-image="images/washed t shirt.PNG">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 4: Vest - images/vest.PNG -->
+                        <div class="product-card" data-category="classic" data-price="4200" data-name="Classic Vest" data-description="Elegant vest for formal occasions. Tailored fit with premium fabric and button details.">
+                            <div class="product-image">
+                                <img src="vest.PNG" alt="Classic Vest">
+                                <button class="quick-view-btn"
+                                    data-name="Classic Vest" 
+                                    data-price="4200" 
+                                    data-image="vest.PNG"
+                                    data-description="Elegant vest for formal occasions. Tailored fit with premium fabric and button details.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Classic Vest</h3>
+                                <p>Elegant vest for formal occasions</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 4,200</span>
+                                    <button class="add-to-cart-btn" data-name="Classic Vest" data-price="4200" data-image="images/vest.PNG">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 5: Textured Polo - images/texturep.jpg -->
+                        <div class="product-card" data-category="classic" data-price="3500" data-name="Textured Polo" data-description="Premium textured polo shirt with classic collar. Breathable fabric perfect for any season.">
+                            <div class="product-image">
+                                <img src="texturep.jpg" alt="Textured Polo">
+                                <button class="quick-view-btn"
+                                    data-name="Textured Polo" 
+                                    data-price="3500" 
+                                    data-image="texturep.jpg"
+                                    data-description="Premium textured polo shirt with classic collar. Breathable fabric perfect for any season.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Textured Polo</h3>
+                                <p>Premium textured polo shirt</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 3,500</span>
+                                    <button class="add-to-cart-btn" data-name="Textured Polo" data-price="3500" data-image="images/texturep.jpg">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 6: Sweatshirt 911 - images/sweatshirt911.PNG -->
+                        <div class="product-card" data-category="street-style" data-price="4800" data-name="Sweatshirt 911" data-description="Trendy oversized sweatshirt with bold graphics. Ultra-soft fleece material for ultimate comfort.">
+                            <div class="product-image">
+                                <img src="sweatshirt911.PNG" alt="Sweatshirt 911">
+                                <div class="product-badge">Premium</div>
+                                <button class="quick-view-btn"
+                                    data-name="Sweatshirt 911" 
+                                    data-price="4800" 
+                                    data-image="sweatshirt911.PNG"
+                                    data-description="Trendy oversized sweatshirt with bold graphics. Ultra-soft fleece material for ultimate comfort.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Sweatshirt 911</h3>
+                                <p>Trendy oversized sweatshirt</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 4,800</span>
+                                    <button class="add-to-cart-btn" data-name="Sweatshirt 911" data-price="4800" data-image="images/sweatshirt911.PNG">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 7: Luxury Watch - images/swatch.jpg -->
+                        <div class="product-card" data-category="accessories" data-price="9200" data-name="Luxury Watch" data-description="Premium timepiece with elegant design. Stainless steel case with sapphire crystal glass.">
+                            <div class="product-image">
+                                <img src="swatch.jpg" alt="Samsung Watch 8 ultra">
+                                <button class="quick-view-btn"
+                                    data-name="Samsung Watch 8 ultra" 
+                                    data-price="9200" 
+                                    data-image="swatch.jpg"
+                                    data-description="Premium timepiece with elegant design. Stainless steel case with sapphire crystal glass.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Luxury Watch</h3>
+                                <p>Premium timepiece with elegant design</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 9,200</span>
+                                    <button class="add-to-cart-btn" data-name="Luxury Watch" data-price="9200" data-image="images/swatch.jpg">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 8: Star Jeans - images/star jeans.PNG -->
+                        <div class="product-card" data-category="street-style" data-price="5800" data-name="Star Jeans" data-description="Distressed denim with star patches. Heavy-duty construction with comfortable stretch.">
+                            <div class="product-image">
+                                <img src="star jeans.PNG" alt="Star Jeans">
+                                <button class="quick-view-btn"
+                                    data-name="Star Jeans" 
+                                    data-price="5800" 
+                                    data-image="star jeans.PNG"
+                                    data-description="Distressed denim with star patches. Heavy-duty construction with comfortable stretch.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Star Jeans</h3>
+                                <p>Distressed denim with star patches</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 5,800</span>
+                                    <button class="add-to-cart-btn" data-name="Star Jeans" data-price="5800" data-image="images/star jeans.PNG">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 9: Skater Jorts - images/skater jorts.PNG -->
+                        <div class="product-card" data-category="street-style" data-price="3200" data-name="Skater Jorts" data-description="Cool denim shorts for summer. Relaxed fit with authentic vintage wash.">
+                            <div class="product-image">
+                                <img src="skater jorts.PNG" alt="Skater Jorts">
+                                <button class="quick-view-btn"
+                                    data-name="Skater Jorts" 
+                                    data-price="3200" 
+                                    data-image="skater jorts.PNG"
+                                    data-description="Cool denim shorts for summer. Relaxed fit with authentic vintage wash.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Skater Jorts</h3>
+                                <p>Cool denim shorts for summer</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 3,200</span>
+                                    <button class="add-to-cart-btn" data-name="Skater Jorts" data-price="3200" data-image="images/skater jorts.PNG">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 10: Sea Salt Spray - images/simpletics-sea-salt-spray.jpg -->
+                        <div class="product-card" data-category="more" data-price="1800" data-name="Sea Salt Spray" data-description="Professional hair styling spray for texture and volume. Natural matte finish.">
+                            <div class="product-image">
+                                <img src="simpletics-sea-salt-spray.jpg" alt="Sea Salt Spray">
+                                <button class="quick-view-btn"
+                                    data-name="Sea Salt Spray" 
+                                    data-price="1800" 
+                                    data-image="simpletics-sea-salt-spray.jpg"
+                                    data-description="Professional hair styling spray for texture and volume. Natural matte finish.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Sea Salt Spray</h3>
+                                <p>Professional hair styling spray</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 1,800</span>
+                                    <button class="add-to-cart-btn" data-name="Sea Salt Spray" data-price="1800" data-image="images/simpletics-sea-salt-spray.jpg">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 11: Silver Watch - images/s.jpg -->
+                        <div class="product-card" data-category="accessories" data-price="7500" data-name="Silver Watch" data-description="Elegant silver timepiece with minimalist design. Japanese quartz movement.">
+                            <div class="product-image">
+                                <img src="s.jpg" alt="Silver Watch">
+                                <button class="quick-view-btn"
+                                    data-name="Silver Watch" 
+                                    data-price="7500" 
+                                    data-image="s.jpg"
+                                    data-description="Elegant silver timepiece with minimalist design. Japanese quartz movement.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Silver Watch</h3>
+                                <p>Elegant silver timepiece</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 7,500</span>
+                                    <button class="add-to-cart-btn" data-name="Silver Watch" data-price="7500" data-image="images/s.jpg">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 12: Sport Watch 1 - images/s watch1.jpg -->
+                        <div class="product-card" data-category="accessories" data-price="6800" data-name="Sport Watch 1" data-description="Sporty design meets functionality. Water resistant up to 50m with stopwatch feature.">
+                            <div class="product-image">
+                                <img src="s watch1.jpg" alt="Sport Watch 1">
+                                <button class="quick-view-btn"
+                                    data-name="Sport Watch 1" 
+                                    data-price="6800" 
+                                    data-image="s watch1.jpg"
+                                    data-description="Sporty design meets functionality. Water resistant up to 50m with stopwatch feature.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Sport Watch 1</h3>
+                                <p>Sporty design meets functionality</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 6,800</span>
+                                    <button class="add-to-cart-btn" data-name="Sport Watch 1" data-price="6800" data-image="images/s watch1.jpg">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 13: Sport Watch - images/s watch.jpg -->
+                        <div class="product-card" data-category="accessories" data-price="7200" data-name="Sport Watch" data-description="Perfect for active lifestyle. Durable construction with comfortable silicone strap.">
+                            <div class="product-image">
+                                <img src="s watch.jpg" alt="Sport Watch">
+                                <button class="quick-view-btn"
+                                    data-name="Sport Watch" 
+                                    data-price="7200" 
+                                    data-image=" watch.jpg"
+                                    data-description="Perfect for active lifestyle. Durable construction with comfortable silicone strap.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Sport Watch</h3>
+                                <p>Perfect for active lifestyle</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 7,200</span>
+                                    <button class="add-to-cart-btn" data-name="Sport Watch" data-price="7200" data-image="images/s watch.jpg">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 14: Printed Hoodie - images/printed hoodie.PNG -->
+                        <div class="product-card" data-category="street-style" data-price="5200" data-name="Printed Hoodie" data-description="Bold graphic hoodie with kangaroo pocket. Premium cotton-poly blend for warmth and comfort.">
+                            <div class="product-image">
+                                <img src="printed hoodie.PNG" alt="Printed Hoodie">
+                                <div class="product-badge">New</div>
+                                <button class="quick-view-btn"
+                                    data-name="Printed Hoodie" 
+                                    data-price="5200" 
+                                    data-image="printed hoodie.PNG"
+                                    data-description="Bold graphic hoodie with kangaroo pocket. Premium cotton-poly blend for warmth and comfort.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Printed Hoodie</h3>
+                                <p>Bold graphic hoodie</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 5,200</span>
+                                    <button class="add-to-cart-btn" data-name="Printed Hoodie" data-price="5200" data-image="images/printed hoodie.PNG">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 15: Oversized Jersey - images/oversized jersey.PNG -->
+                        <div class="product-card" data-category="street-style" data-price="4500" data-name="Oversized Jersey" data-description="Comfortable oversized fit with dropped shoulders. Perfect for casual streetwear look.">
+                            <div class="product-image">
+                                <img src="oversized jersey.PNG" alt="Oversized Jersey">
+                                <button class="quick-view-btn"
+                                    data-name="Oversized Jersey" 
+                                    data-price="4500" 
+                                    data-image="oversized jersey.PNG"
+                                    data-description="Comfortable oversized fit with dropped shoulders. Perfect for casual streetwear look.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Oversized Jersey</h3>
+                                <p>Comfortable oversized fit</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 4,500</span>
+                                    <button class="add-to-cart-btn" data-name="Oversized Jersey" data-price="4500" data-image="images/oversized jersey.PNG">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 16: Graffiti Jeans - images/graffitijeans.PNG -->
+                        <div class="product-card" data-category="street-style" data-price="6200" data-name="Graffiti Jeans" data-description="Artistic graffiti print denim with unique hand-painted details. Limited edition piece.">
+                            <div class="product-image">
+                                <img src="graffitijeans.PNG" alt="Graffiti Jeans">
+                                <div class="product-badge">Premium</div>
+                                <button class="quick-view-btn"
+                                    data-name="Graffiti Jeans" 
+                                    data-price="6200" 
+                                    data-image="graffitijeans.PNG"
+                                    data-description="Artistic graffiti print denim with unique hand-painted details. Limited edition piece.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Graffiti Jeans</h3>
+                                <p>Artistic graffiti print denim</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 6,200</span>
+                                    <button class="add-to-cart-btn" data-name="Graffiti Jeans" data-price="6200" data-image="images/graffitijeans.PNG">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 17: Collar T-Shirt - images/collar tshirt.PNG -->
+                        <div class="product-card" data-category="classic" data-price="2900" data-name="Collar T-Shirt" data-description="Smart casual collar tee with button details. Perfect blend of comfort and style.">
+                            <div class="product-image">
+                                <img src="collar tshirt.PNG" alt="Collar T-Shirt">
+                                <button class="quick-view-btn"
+                                    data-name="Collar T-Shirt" 
+                                    data-price="2900" 
+                                    data-image="collar tshirt.PNG"
+                                    data-description="Smart casual collar tee with button details. Perfect blend of comfort and style.">
+                                    <i class="fa-solid fa-eye"></i> Quick View
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Collar T-Shirt</h3>
+                                <p>Smart casual collar tee</p>
+                                <div class="product-footer">
+                                    <span class="price">Rs. 2,900</span>
+                                    <button class="add-to-cart-btn" data-name="Collar T-Shirt" data-price="2900" data-image="images/collar tshirt.PNG">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="quick-view-content">
+            <button class="close-quick-view" id="closeQuickView">&times;</button>
+            <div class="quick-view-body">
+                <div class="quick-view-image">
+                    <img id="quickViewImg" src="" alt="Product">
+                </div>
+                <div class="quick-view-details">
+                    <h2 id="quickViewName"></h2>
+                    <p class="quick-view-price" id="quickViewPrice"></p>
+                    <p class="quick-view-description" id="quickViewDescription"></p>
+                    
+                    <div class="quick-view-options">
+                        <div class="option-group">
+                            <label>Size:</label>
+                            <div class="size-options">
+                                <button class="size-btn">S</button>
+                                <button class="size-btn">M</button>
+                                <button class="size-btn active">L</button>
+                                <button class="size-btn">XL</button>
+                                <button class="size-btn">XXL</button>
+                            </div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Quantity:</label>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" class="qty-input" value="1" min="1" max="10">
+                                <button class="qty-btn plus"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-view-actions">
+                        <button class="add-to-cart-modal-btn" id="addToCartModalBtn">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <button class="whatsapp-direct-btn" id="whatsappDirectBtn">
+                            <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+                        </button>
+                    </div>
+                    
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fa-solid fa-truck"></i>
+                            <span>Free shipping on orders above Rs. 5,000</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fa-solid fa-rotate"></i>
+                            <span>7-day easy returns</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>100% authentic products</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo-section">
+                        <img src="aurave logo.png" alt="Auravé Logo">
+                        <span class="footer-brand-text">AURAVÉ</span>
+                    </div>
+                    <p class="footer-tagline">"Where Aura Meets Life"</p>
+                    <p class="footer-description">Bringing Western luxury, bold aesthetics, and effortless street style to the Pakistani market.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <a href="#" class="footer-modal-link" data-modal="sizeChart">
+                        <i class="fa-solid fa-ruler"></i> Size Chart
+                    </a>
+                    <a href="#" class="footer-modal-link" data-modal="careGuide">
+                        <i class="fa-solid fa-shirt"></i> How to Care
+                    </a>
+                    <a href="#" class="footer-modal-link" data-modal="policies">
+                        <i class="fa-solid fa-shield-halved"></i> Policies
+                    </a>
+                    <a href="#" class="footer-modal-link" data-modal="shipping">
+                        <i class="fa-solid fa-truck"></i> Shipping Info
+                    </a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://wa.me/923352723423" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Auravé. All rights reserved. | Designed with <span style="color: #ff6b35;">♥</span> in Pakistan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer Modals -->
+    <div class="footer-modal" id="sizeChartModal">
+        <div class="footer-modal-content">
+            <button class="close-modal" data-modal="sizeChart">&times;</button>
+            <h2><i class="fa-solid fa-ruler"></i> Size Chart</h2>
+            <div class="modal-body">
+                <div class="size-chart-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Chest</th>
+                                <th>Waist</th>
+                                <th>Length</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>S</strong></td><td>36-38"</td><td>30-32"</td><td>27-28"</td></tr>
+                            <tr><td><strong>M</strong></td><td>38-40"</td><td>32-34"</td><td>28-29"</td></tr>
+                            <tr><td><strong>L</strong></td><td>40-42"</td><td>34-36"</td><td>29-30"</td></tr>
+                            <tr><td><strong>XL</strong></td><td>42-44"</td><td>36-38"</td><td>30-31"</td></tr>
+                            <tr><td><strong>XXL</strong></td><td>44-46"</td><td>38-40"</td><td>31-32"</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-modal" id="careGuideModal">
+        <div class="footer-modal-content">
+            <button class="close-modal" data-modal="careGuide">&times;</button>
+            <h2><i class="fa-solid fa-shirt"></i> Care Guide</h2>
+            <div class="modal-body">
+                <div class="care-guide">
+                    <div class="care-item">
+                        <i class="fa-solid fa-droplet"></i>
+                        <h3>Washing</h3>
+                        <p>Machine wash cold with similar colors.</p>
+                    </div>
+                    <div class="care-item">
+                        <i class="fa-solid fa-sun"></i>
+                        <h3>Drying</h3>
+                        <p>Tumble dry low or hang dry.</p>
+                    </div>
+                    <div class="care-item">
+                        <i class="fa-solid fa-fire"></i>
+                        <h3>Ironing</h3>
+                        <p>Iron on medium heat if needed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-modal" id="policiesModal">
+        <div class="footer-modal-content">
+            <button class="close-modal" data-modal="policies">&times;</button>
+            <h2><i class="fa-solid fa-shield-halved"></i> Policies</h2>
+            <div class="modal-body">
+                <div class="policy-section">
+                    <h3>Return Policy</h3>
+                    <p>7-day returns. Items must be unworn with tags.</p>
+                </div>
+                <div class="policy-section">
+                    <h3>Payment Policy</h3>
+                    <p>Cash on delivery available.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-modal" id="shippingModal">
+        <div class="footer-modal-content">
+            <button class="close-modal" data-modal="shipping">&times;</button>
+            <h2><i class="fa-solid fa-truck"></i> Shipping Info</h2>
+            <div class="modal-body">
+                <div class="shipping-info">
+                    <div class="shipping-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <h3>Delivery Time</h3>
+                        <p>3-5 business days nationwide.</p>
+                    </div>
+                    <div class="shipping-item">
+                        <i class="fa-solid fa-money-bill"></i>
+                        <h3>Charges</h3>
+                        <p>Rs. 200 flat. Free over Rs. 5,000.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923352723423" target="_blank" class="whatsapp-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Notification Popup -->
+    <div class="notification" id="notification">
+        <i class="fa-solid fa-check-circle"></i>
+        <span>Added to cart!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

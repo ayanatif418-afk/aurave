@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auravé - Where Western Luxury Meets Pakistani Streets</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/aurave logo.png">
+</head>
+<body>
+    <!-- Enhanced Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="aurave logo.png" alt="Auravé Logo">
+                    <span class="logo-text">AURAVÉ</span>
+                </a>
+            </div>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="products.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <div class="nav-icons">
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Enhanced Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Rs. 0</span>
+                </div>
+                <button class="whatsapp-order-btn" id="whatsappOrderBtn">
+                    <i class="fa-brands fa-whatsapp"></i> Place Order via WhatsApp
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+        <div class="slider-container">
+            <!-- HERO SLIDE 1: Replace with images/c street.png -->
+            <div class="slide active" style="background-image: linear-gradient(rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.5)), url('c street.png');">
+                <div class="slide-content">
+                    <h1>Western Luxury Meets Pakistani Streets</h1>
+                    <p>Discover premium watches and accessories that define your style</p>
+                    <a href="products.html" class="cta-btn">Shop Now</a>
+                </div>
+            </div>
+            
+            <!-- HERO SLIDE 2: Replace with images/classy.jpg -->
+            <div class="slide" style="background-image: linear-gradient(rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.5)), url('classy.jpg');">
+                <div class="slide-content">
+                    <h1>Redefine Your Style</h1>
+                    <p>Bold aesthetics for the modern trendsetter</p>
+                    <a href="products.html" class="cta-btn">Explore Collection</a>
+                </div>
+            </div>
+            
+            <!-- HERO SLIDE 3: Replace with images/st.jpg -->
+            <div class="slide" style="background-image: linear-gradient(rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.5)), url('st.jpg');">
+                <div class="slide-content">
+                    <h1>Luxury That Speaks</h1>
+                    <p>Exclusive pieces you won't find anywhere else</p>
+                    <a href="products.html" class="cta-btn">Discover More</a>
+                </div>
+            </div>
+            
+            <!-- HERO SLIDE 4: Replace with images/suit.jpg -->
+            <div class="slide" style="background-image: linear-gradient(rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.5)), url('suit.jpg');">
+                <div class="slide-content">
+                    <h1>Elevate Your Presence</h1>
+                    <p>Where sophistication meets street culture</p>
+                    <a href="products.html" class="cta-btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <button class="slider-btn prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="slider-btn next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+        
+        <div class="slider-dots" id="sliderDots"></div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="featured-collections">
+        <div class="container">
+            <h2 class="section-title">Featured Collections</h2>
+            <div class="collections-grid">
+                <!-- COLLECTION 1: Replace with images/street wear.jpg -->
+                <a href="products.html?filter=street-style" class="collection-card">
+                    <div class="card-image" style="background-image: url('street wear.jpg');">
+                        <div class="card-overlay">
+                            <h3>Street Style</h3>
+                            <p>Bold & Urban</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- COLLECTION 2: Replace with images/classic.jpg -->
+                <a href="products.html?filter=classic" class="collection-card">
+                    <div class="card-image" style="background-image: url('classic.jpg');">
+                        <div class="card-overlay">
+                            <h3>Classic</h3>
+                            <p>Timeless Elegance</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- COLLECTION 3: Replace with images/mens_accessories.jpg -->
+                <a href="products.html?filter=accessories" class="collection-card">
+                    <div class="card-image" style="background-image: url('mens_accessories.jpg');">
+                        <div class="card-overlay">
+                            <h3>Accessories</h3>
+                            <p>Complete Your Look</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- COLLECTION 4: Replace with images/clasic.jpeg -->
+                <a href="products.html?filter=more" class="collection-card">
+                    <div class="card-image" style="background-image: url('clasic.jpeg');">
+                        <div class="card-overlay">
+                            <h3>More</h3>
+                            <p>Explore Everything</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Intro Section -->
+    <section class="brand-intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2>Where Luxury Meets Street Culture</h2>
+                <p>Auravé redefines Pakistani fashion by infusing Western luxury, bold aesthetics, and effortless street style into every piece. We bring you premium watches, flashy accessories, and trendy apparel that you won't find anywhere else in the local market.</p>
+                <a href="about.html" class="secondary-btn">Learn More About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo-section">
+                        <img src="aurave logo.png" alt="Auravé Logo">
+                        <span class="footer-brand-text">AURAVÉ</span>
+                    </div>
+                    <p class="footer-tagline">"Where Aura Meets Life"</p>
+                    <p class="footer-description">Bringing Western luxury, bold aesthetics, and effortless street style to the Pakistani market. We curate exclusive pieces that define your presence and elevate your style.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <a href="#" class="footer-modal-link" data-modal="sizeChart">
+                        <i class="fa-solid fa-ruler"></i> Size Chart
+                    </a>
+                    <a href="#" class="footer-modal-link" data-modal="careGuide">
+                        <i class="fa-solid fa-shirt"></i> How to Care
+                    </a>
+                    <a href="#" class="footer-modal-link" data-modal="policies">
+                        <i class="fa-solid fa-shield-halved"></i> Policies
+                    </a>
+                    <a href="#" class="footer-modal-link" data-modal="shipping">
+                        <i class="fa-solid fa-truck"></i> Shipping Info
+                    </a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://wa.me/923352723423" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Auravé. All rights reserved. | Designed with <span style="color: #ff6b35;">♥</span> in Pakistan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer Modals -->
+    <!-- Size Chart Modal -->
+    <div class="footer-modal" id="sizeChartModal">
+        <div class="footer-modal-content">
+            <button class="close-modal" data-modal="sizeChart">&times;</button>
+            <h2><i class="fa-solid fa-ruler"></i> Size Chart</h2>
+            <div class="modal-body">
+                <div class="size-chart-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Chest (inches)</th>
+                                <th>Waist (inches)</th>
+                                <th>Length (inches)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>S</strong></td>
+                                <td>36-38</td>
+                                <td>30-32</td>
+                                <td>27-28</td>
+                            </tr>
+                            <tr>
+                                <td><strong>M</strong></td>
+                                <td>38-40</td>
+                                <td>32-34</td>
+                                <td>28-29</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L</strong></td>
+                                <td>40-42</td>
+                                <td>34-36</td>
+                                <td>29-30</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XL</strong></td>
+                                <td>42-44</td>
+                                <td>36-38</td>
+                                <td>30-31</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XXL</strong></td>
+                                <td>44-46</td>
+                                <td>38-40</td>
+                                <td>31-32</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="modal-note"><i class="fa-solid fa-info-circle"></i> Measurements may vary by ±1 inch. For best fit, measure your favorite garment.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Care Guide Modal -->
+    <div class="footer-modal" id="careGuideModal">
+        <div class="footer-modal-content">
+            <button class="close-modal" data-modal="careGuide">&times;</button>
+            <h2><i class="fa-solid fa-shirt"></i> How to Care for Your Garments</h2>
+            <div class="modal-body">
+                <div class="care-guide">
+                    <div class="care-item">
+                        <i class="fa-solid fa-droplet"></i>
+                        <h3>Washing</h3>
+                        <p>Machine wash cold with similar colors. Use mild detergent and avoid bleach.</p>
+                    </div>
+                    <div class="care-item">
+                        <i class="fa-solid fa-sun"></i>
+                        <h3>Drying</h3>
+                        <p>Tumble dry on low heat or hang dry. Avoid direct sunlight to prevent fading.</p>
+                    </div>
+                    <div class="care-item">
+                        <i class="fa-solid fa-fire"></i>
+                        <h3>Ironing</h3>
+                        <p>Iron on medium heat if needed. Turn garments inside out to protect prints.</p>
+                    </div>
+                    <div class="care-item">
+                        <i class="fa-solid fa-box-archive"></i>
+                        <h3>Storage</h3>
+                        <p>Store in a cool, dry place. Fold heavy items and hang delicate pieces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Policies Modal -->
+    <div class="footer-modal" id="policiesModal">
+        <div class="footer-modal-content">
+            <button class="close-modal" data-modal="policies">&times;</button>
+            <h2><i class="fa-solid fa-shield-halved"></i> Our Policies</h2>
+            <div class="modal-body">
+                <div class="policy-section">
+                    <h3><i class="fa-solid fa-rotate"></i> Return Policy</h3>
+                    <p>We accept returns within 7 days of delivery. Items must be unworn, unwashed, and in original packaging with tags attached.</p>
+                </div>
+                <div class="policy-section">
+                    <h3><i class="fa-solid fa-credit-card"></i> Payment Policy</h3>
+                    <p>We accept cash on delivery (COD) for all orders. Payment is collected upon successful delivery of your order.</p>
+                </div>
+                <div class="policy-section">
+                    <h3><i class="fa-solid fa-lock"></i> Privacy Policy</h3>
+                    <p>Your personal information is secure with us. We never share your data with third parties without your consent.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shipping Info Modal -->
+    <div class="footer-modal" id="shippingModal">
+        <div class="footer-modal-content">
+            <button class="close-modal" data-modal="shipping">&times;</button>
+            <h2><i class="fa-solid fa-truck"></i> Shipping Information</h2>
+            <div class="modal-body">
+                <div class="shipping-info">
+                    <div class="shipping-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <h3>Delivery Time</h3>
+                        <p>Standard delivery takes 3-5 business days within Pakistan.</p>
+                    </div>
+                    <div class="shipping-item">
+                        <i class="fa-solid fa-money-bill"></i>
+                        <h3>Shipping Charges</h3>
+                        <p>Rs. 200 flat rate nationwide. Free shipping on orders above Rs. 5,000.</p>
+                    </div>
+                    <div class="shipping-item">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <h3>Coverage</h3>
+                        <p>We deliver to all major cities across Pakistan including Karachi, Lahore, Islamabad, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923352723423?text=Hi%20Auravé!%20I'm%20interested%20in%20your%20products." target="_blank" class="whatsapp-btn" aria-label="Contact on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
