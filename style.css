@@ -1035,6 +1035,7 @@ img {
     transition: var(--transition);
     border: 2px solid transparent;
     position: relative;
+    pointer-events: auto;
 }
 
 .product-card::before {
@@ -1049,6 +1050,7 @@ img {
     mask-composite: exclude;
     opacity: 0;
     transition: var(--transition);
+    pointer-events: none;
 }
 
 .product-card:hover::before {
@@ -1068,6 +1070,7 @@ img {
     position: relative;
     height: 320px;
     overflow: hidden;
+    pointer-events: auto;
 }
 
 .product-image img {
@@ -1075,6 +1078,7 @@ img {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
+    pointer-events: none;
 }
 
 .product-card:hover .product-image img {
@@ -1095,10 +1099,15 @@ img {
     letter-spacing: 0.5px;
     z-index: 2;
     box-shadow: 0 4px 15px var(--shadow);
+    pointer-events: none;
 }
 
 .product-info {
     padding: 25px;
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    background: var(--dark-card);
 }
 
 .product-info h3 {
@@ -1107,6 +1116,7 @@ img {
     margin-bottom: 10px;
     color: var(--text-light);
     transition: var(--transition);
+    pointer-events: none;
 }
 
 .product-card:hover .product-info h3 {
@@ -1121,6 +1131,7 @@ img {
     color: var(--text-gray);
     margin-bottom: 20px;
     line-height: 1.6;
+    pointer-events: none;
 }
 
 .product-footer {
@@ -1128,6 +1139,8 @@ img {
     justify-content: space-between;
     align-items: center;
     gap: 15px;
+    position: relative;
+    z-index: 100;
 }
 
 .price {
@@ -1137,6 +1150,7 @@ img {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    pointer-events: none;
 }
 
 .add-to-cart-btn {
@@ -1147,7 +1161,69 @@ img {
     border-radius: 25px;
     font-size: 14px;
     font-weight: 600;
+    cursor: pointer !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    white-space: nowrap;
+    z-index: 1000 !important;
+    position: relative;
+    pointer-events: auto !important;
+}
+
+.add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.95);
+}
+
+.add-to-cart-btn i {
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.quick-view-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-gradient);
+    color: var(--dark-bg);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    font-size: 14px;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.product-card:hover .quick-view-btn {
+    opacity: 1;
+    visibility: visible;
+    bottom: 25px;
+    pointer-events: all;
+}
+
+.quick-view-btn:hover {
+    transform: translateX(-50%) translateY(-2px);
+}
+
+.quick-view-btn i {
+    pointer-events: none;
+}weight: 600;
+    cursor{ pointer;
     display: flex;
     align-items: center;
     gap: 8px;
