@@ -152,50 +152,79 @@ function updateCart() {
     localStorage.setItem('auraveCart', JSON.stringify(cart));
 }
 
-// Add to cart
-document.addEventListener('click', (e) => {
-    if (e.target.closest('.add-to-cart-btn')) {
-        const btn = e.target.closest('.add-to-cart-btn');
-        const name = btn.getAttribute('data-name');
-        const price = parseInt(btn.getAttribute('data-price'));
-        const image = btn.getAttribute('data-image');
+// Add to cart with proper event handling
+document.body.addEventListener('click', function(e) {
+    // Add to cart from product card
+    const addToCartBtn = e.target.closest('.add-to-cart-btn');
+    if (addToCartBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const name = addToCartBtn.getAttribute('data-name');
+        const price = parseInt(addToCartBtn.getAttribute('data-price'));
+        const image = addToCartBtn.getAttribute('data-image');
+        
+        if (!name || !price || !image) {
+            console.error('Missing product data');
+            return;
+        }
         
         const existingItem = cart.find(item => item.name === name);
         
         if (existingItem) {
             existingItem.quantity++;
         } else {
-            cart.push({ name, price, image, quantity: 1 });
+            cart.push({ 
+                name: name, 
+                price: price, 
+                image: image, 
+                quantity: 1 
+            });
         }
         
         updateCart();
-        showNotification('Added to cart!');
+        showNotification(`${name} added to cart!`);
+        
+        // Visual feedback
+        addToCartBtn.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            addToCartBtn.style.transform = '';
+        }, 200);
+        
+        return;
     }
     
     // Remove from cart
-    if (e.target.closest('.remove-item')) {
-        const index = parseInt(e.target.closest('.remove-item').getAttribute('data-index'));
+    const removeBtn = e.target.closest('.remove-item');
+    if (removeBtn) {
+        const index = parseInt(removeBtn.getAttribute('data-index'));
+        const itemName = cart[index].name;
         cart.splice(index, 1);
         updateCart();
-        showNotification('Removed from cart');
+        showNotification(`${itemName} removed from cart`);
+        return;
     }
     
     // Increase quantity
-    if (e.target.closest('.increase')) {
-        const index = parseInt(e.target.closest('.increase').getAttribute('data-index'));
+    const increaseBtn = e.target.closest('.increase');
+    if (increaseBtn) {
+        const index = parseInt(increaseBtn.getAttribute('data-index'));
         cart[index].quantity++;
         updateCart();
+        return;
     }
     
     // Decrease quantity
-    if (e.target.closest('.decrease')) {
-        const index = parseInt(e.target.closest('.decrease').getAttribute('data-index'));
+    const decreaseBtn = e.target.closest('.decrease');
+    if (decreaseBtn) {
+        const index = parseInt(decreaseBtn.getAttribute('data-index'));
         if (cart[index].quantity > 1) {
             cart[index].quantity--;
         } else {
             cart.splice(index, 1);
         }
         updateCart();
+        return;
     }
 });
 
@@ -592,8 +621,53 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== INITIALIZE ON PAGE LOAD =====
+// Initialize cart buttons after DOM loads
 document.addEventListener('DOMContentLoaded', () => {
+    // Add to cart buttons
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Button clicked!'); // Debug log
+            
+            const name = this.getAttribute('data-name');
+            const price = parseInt(this.getAttribute('data-price'));
+            const image = this.getAttribute('data-image');
+            
+            console.log('Product:', name, price, image); // Debug log
+            
+            if (!name || !price || !image) {
+                console.error('Missing product data');
+                return;
+            }
+            
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ 
+                    name: name, 
+                    price: price, 
+                    image: image, 
+                    quantity: 1 
+                });
+            }
+            
+            updateCart();
+            showNotification(`${name} added to cart!`);
+            
+            // Visual feedback
+            this.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        });
+    });
+    
     updateCart();
     
     // Add animation on scroll
